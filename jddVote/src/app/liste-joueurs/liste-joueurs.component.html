@@ -1,0 +1,20 @@
+<div class ="row m-0" >
+    <label class="col-3">Recherche de nom / pseudo : </label>
+        <input class="col-6" type="text" [(ngModel)]="nomOuPseudoJoueur" (keyup)="onKeyUpEvent($event)"/>
+</div>
+<div>
+    <button routerLink="/">Retour</button>
+</div>
+<div>
+    <div class="row m-0" style="border-width: 1px;border-style: solid;">
+        <div class="col-1">Numero</div>
+        <div class="col-3">Nom</div>
+        <div class="col-3">Pseudo</div>
+    </div>
+       
+    <div *ngFor="let joueur of listeJoueurs | async" class="row m-0" style="border-width: 1px;border-style: solid;">
+        <div class="col-1">{{joueur.id}} </div>
+        <div class="col-3">{{joueur.nom}}</div>
+        <div class="col-3">{{joueur.pseudo}}</div>
+    </div>
+</div>

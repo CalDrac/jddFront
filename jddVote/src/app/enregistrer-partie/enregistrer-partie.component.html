@@ -1,0 +1,35 @@
+<div>
+    <div>
+        Jeu : <select [(ngModel)]="selectedJeu">
+            <option [ngValue]="null">Selectionner un jeu</option>
+            <option [ngValue]="jeu" *ngFor="let jeu of listeJeux | async">{{jeu.nom}}</option>
+        </select>
+    </div>
+</div>
+<div>
+    Numéro joueurs :
+</div>
+<div *ngFor="let test of listeJoueurs; let i = index; trackBy: trackByFn">
+    
+    {{i + 1}} - <input  [(ngModel)]="listeJoueurs[i]" type="number" (keypress)="onKeypressEvent($event)"/>
+
+    <button type="button" (click)="retirerJoueur(i)">
+        -
+    </button>
+</div>
+<div>
+    <button type="button" (click)="ajouterJoueur()">
+        +
+    </button>
+</div>
+<div>------------------------</div>
+<div *ngIf="!siteOpen">
+    Le site est actuellement fermé, impossible de créer une nouvelle partie.
+</div>
+<div>
+    <button *ngIf="siteOpen" (click)="enregistrerPartie()">
+        Enregistrer
+    </button>
+    <button routerLink="/"> Retour</button>
+</div>
+<div [innerHTML]="error"></div>

@@ -1,0 +1,9 @@
+<!--<mat-form-field appearance="fill">
+    <mat-label>Accès restreint, mot de passe ?</mat-label>
+    <input matInput [(ngModel)]="mdp">
+  </mat-form-field>[mat-dialog-close]="mdp" -->
+<div mat-dialog-actions>
+    <input matInput [(ngModel)]="mdp">
+    <button mat-button (click)="onOKClick()">Ok</button>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+</div>

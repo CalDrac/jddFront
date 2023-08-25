@@ -1,0 +1,3 @@
+<div class="background-open" *ngIf="siteOuvert && !fermetureProche">Le site est actuellement ouvert</div>
+<div class="background-soon" *ngIf="siteOuvert && fermetureProche">Le site fermera ses portes prochainement</div>
+<div class="background-close" *ngIf="!siteOuvert">Le site est actuellement fermé</div>

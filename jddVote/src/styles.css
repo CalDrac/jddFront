@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+.global-background {
+    background-color: black;
+    color: white;
+  }
+  .background-open {
+    background-color: green;
+    color: white;
+  }
+  .background-soon{
+    background-color: #aa9022;
+    color: white;
+  }
+  .background-close{
+    background-color: red;
+    color: white;
+  }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

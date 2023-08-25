@@ -1,0 +1,68 @@
+<!--<div>Methode "1 vote = 1 point"</div>
+-------------------------
+<div *ngIf="listeCountVotesFamille.size != 0">
+    <div> Podium Famille : </div>
+    <div *ngFor="let jeu of podiumFamilleObs | async ; let i = index">
+        {{i+1}} - {{jeu.jeu.nom}} : {{jeu.nombreVotes}} points
+    </div>
+</div>
+--------------------------
+<div *ngIf="listeCountVotesExpert.size != 0">
+    <div> Podium Expert : </div>
+    <div *ngFor="let jeu of podiumExpertObs | async ; let i = index">
+        {{i+1}} - {{jeu.jeu.nom}} : {{jeu.nombreVotes}} points
+    </div>
+    <div>
+</div>
+    ----------------------
+<div>Methode 2 : 13/01/22</div>
+<div *ngIf="listeCountVotesFamille.size != 0">
+        <div> Podium Famille : </div>
+        <div *ngFor="let jeu of podiumFamilleObsMethode2 | async ; let i = index">
+            {{i+1}} - {{jeu.jeu.nom}} : {{jeu.nombreVotes}} points
+        </div>
+    </div>
+    --------------------------
+    <div *ngIf="listeCountVotesExpert.size != 0">
+        <div> Podium Expert : </div>
+        <div *ngFor="let jeu of podiumExpertObsMethode2 | async ; let i = index">
+            {{i+1}} - {{jeu.jeu.nom}} : {{jeu.nombreVotes}} points
+        </div>
+        <div>
+    </div>
+<div>
+    ----------------------
+</div>
+<div *ngIf="listeCountVotesExpert.size != 0">
+    <div *ngFor="let item of listeCountVotesExpert | keyvalue">
+        {{item.key.nom}} : {{item.value}} votes
+    </div>
+</div>
+-------------------------
+<div *ngIf="listeCountVotesFamille.size != 0">
+    <div *ngFor="let item of listeCountVotesFamille | keyvalue">
+        {{item.key.nom}} : {{item.value}} votes
+    </div>
+</div>
+------------------------
+-->
+<div>
+    <div>Famille :</div>
+    <div *ngFor="let jeu of listeJeuxObs |async">
+        {{jeu.nom}} - {{jeu.resultat}}
+    </div>
+</div>
+<div>-------------------------------</div>
+
+<div>
+        <div>Expert :</div>
+        <div *ngFor="let jeu of listeJeuxExpertObs |async">
+            {{jeu.nom}} - {{jeu.resultat}}
+        </div>
+    </div>
+    <div>-------------------------------</div>
+
+
+<div>
+    <button routerLink="/"> Retour</button>
+</div>

@@ -1,0 +1,45 @@
+<div>
+<div>
+    Ajout d'un joueur
+</div >
+
+<div class="row">
+    <div class="col-2">
+        Nom :
+    </div>
+    <div class="col-3">
+        <input [(ngModel)]="nomJoueur" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-2">
+        Prénom :
+    </div>
+    <div class="col-3">
+        <input [(ngModel)]="prenomJoueur" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-2">
+            Pseudo :
+    </div>
+    <div class="col-3">
+        <input [(ngModel)]="pseudoJoueur" />
+    </div>
+</div>
+<div *ngIf="siteOpen">
+    <button (click)="enregistrerJoueur()">
+        Enregistrer
+    </button>
+</div>
+<div *ngIf="!siteOpen">
+    Le site est actuellement fermé, impossible d'ajouter un nouveau joueur.
+</div>
+
+    <button routerLink="/"> Retour</button>
+    <div>{{error}} </div>
+    <div *ngIf="addedJoueur != null">
+        Joueur {{addedJoueur.nom}} ({{addedJoueur.pseudo}}) est n° {{addedJoueur.id}}
+    </div>
+</div>

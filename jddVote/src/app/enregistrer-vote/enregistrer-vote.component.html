@@ -1,0 +1,32 @@
+<div>
+    <div>
+        Numéro du joueur : <input [(ngModel)]="idJoueur" type="number" (keypress)="onKeypressEvent($event)" (change)="onChangeEvent($event)" (ngModelChange)="valuechange($event)"/> <button (click)="checkVotesJoueur()">Check</button> <label *ngIf="joueur != null"> Nom : {{joueur.nom}}</label>
+    </div>
+    <div *ngIf="voteJeuFamilleAvailable && jeuxFamille.length != 0">
+        Jeu Famille : 
+        <select [(ngModel)]="jeuFamilleVoted">
+                <option [ngValue]="null"> Selectionner un jeu </option>
+            <option [ngValue]="jeuF.id" *ngFor="let jeuF of listeJeuxFamille | async"> {{jeuF.nom}} </option>
+        </select>
+    </div>
+    
+    <div *ngIf="voteJeuExpertAvailable && jeuxExpert.length != 0">
+        Jeu Expert : 
+        <select [(ngModel)]="jeuExpertVoted">
+            <option [ngValue]="null"> Selectionner un jeu </option>
+            <option [ngValue]="jeuE.id" *ngFor="let jeuE of listeJeuxExpert | async"> {{jeuE.nom}} </option>
+        </select>
+    </div>
+    
+</div>
+<div *ngIf="((!voteJeuFamilleAvailable || jeuxFamille.length == 0)&& (!voteJeuExpertAvailable || jeuxExpert.length == 0) ) && joueurChecked && joueur != null">
+    Ce joueur a déjà voté.
+</div>
+<div *ngIf="rechercheEnCours">Recherche en cours ...</div>
+<div *ngIf="jeuxExpert.length == 0 && jeuxFamille.length == 0 && joueur != null"> Aucune partie enregistrée pour ce joueur.</div>
+<div *ngIf="joueurChecked && joueur == null && !rechercheEnCours" > Joueur non trouvé.</div>
+<div *ngIf="!siteOpen">
+    Le site est actuellement fermé, il est impossible d'enregistrer un vote. 
+</div>
+<button *ngIf="siteOpen" (click)="enregistrerVote()" [disabled]="((!voteJeuFamilleAvailable || jeuxFamille.length == 0)&& (!voteJeuExpertAvailable || jeuxExpert.length == 0) ) || (jeuxExpert.length == 0 && jeuxFamille.length == 0)"> Enregistrer</button>
+<button routerLink="/"> Retour</button>

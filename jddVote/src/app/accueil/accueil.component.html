@@ -1,0 +1,24 @@
+<p>Bienvenue dans l'appli des Jeux de Demain de Paris est Ludique</p>
+<div>
+    <div *ngIf="siteOpen">
+        <button routerLink="/ajouterJoueur"> Ajouter joueur</button>
+    </div>
+    <div *ngIf="siteOpen">
+        <button routerLink="/enregistrerPartie">Enregistrer Partie</button>
+    </div>
+    <div *ngIf="siteOpen"> 
+        <button routerLink="/enregistrerVote"> Enregistrer Vote</button>
+    </div>
+    <div>
+        <button routerLink="/listeJoueurs"> Liste Joueurs</button>
+    </div>
+    <div *ngIf="voteVisible && !siteOpen">
+        <button routerLink="/listeVote">   Liste Vote</button>
+    </div>
+    <div *ngIf="voteVisible && siteOpen">
+        <button (click)="openDialog()">Votes</button>
+    </div>
+    <div *ngIf="statsVisible">
+        <button (click)="openDialogStats()">Stats</button>
+    </div>
+</div>
